@@ -37,7 +37,7 @@ public class Correo implements Serializable {
     private String correo;
 
     // Cada empleado va a tener muchos telefonos
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     // @JoinColumn(name = "idEmpleado") // Aqui lo que le digo es que nombre quiero que tenga el campo de relación
     private Empleado empleado; // Esta es la que me genera la relación, el crea un campo para relacionar las dos tablas
 
