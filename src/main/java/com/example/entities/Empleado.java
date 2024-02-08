@@ -66,7 +66,7 @@ public class Empleado implements Serializable {
     // Pero tengo que decirle cómo se relacionan
     // Quiero que si se hace una búsqueda me la haga cuando yo se la pida
     // cascade: como quiero que el cambio se propague
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private Departamento departamento;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "empleado")
