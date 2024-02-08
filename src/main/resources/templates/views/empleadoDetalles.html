@@ -8,6 +8,31 @@
 </head>
 <body>
     <h1 th:text="'Detalles del empleado' + ${empleado.nombre}">Detalles del Empleado</h1>
+    <img th:src="@{/images/}+${empleado.foto}"
+        alt="Foto del Empleado1">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Fecha de Alta</th>
+                <th>Salario</th>
+                <th>Genero</th>
+            </tr>
+        </thead>
+        <tbody>
+                <input type="hidden" th:field="*{id}">
+                <td th:text="${empleado.nombre}"></td>
+                <td th:text="${empleado.primerApellido}"></td>
+                <td th:text="${empleado.segundoApellido}"></td>
+                <td th:text="${empleado.fechaAlta}"></td>
+                <td th:text="${empleado.salario}"></td>
+                <td th:text="${empleado.genero}"></td>
+        </tbody>
+    </table>
+
     
 </body>
 </html>

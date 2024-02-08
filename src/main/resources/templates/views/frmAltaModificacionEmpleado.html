@@ -11,7 +11,7 @@
 
     <fieldset>
         <legend>Formulario</legend>
-        <form th:object="${empleado}" th:action="@{/persistir}" method="post">
+        <form th:object="${empleado}" th:action="@{/persistir}" method="post" enctype="multipart/form-data">
             <input type="hidden" th:field="*{id}">
             <label for="nombre">Nombre: </label>
             <input type="text" id="nombre" th:field="*{nombre}">
@@ -55,6 +55,7 @@
             <input type="text" id="correos" name="direccionesCorreo"
                 th:value="${direccionesDeCorreo}"
                 placeholder="Uno o varios separados por ; ">
+            <input type="file" name="file">
             <input type="submit" value="Alta/Modificación">
 
         </form>

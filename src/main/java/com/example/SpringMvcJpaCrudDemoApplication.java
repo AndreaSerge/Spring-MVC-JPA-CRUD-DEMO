@@ -72,6 +72,7 @@ public class SpringMvcJpaCrudDemoApplication implements CommandLineRunner {
 				.salario(2500.5)
 				.departamento(departamentoService.dameUnDepartamento(1))
 				.genero(Genero.OTRO)
+				.foto("AuroraB")
 				.build();
 
 		Empleado emp2 = Empleado.builder()
@@ -82,6 +83,7 @@ public class SpringMvcJpaCrudDemoApplication implements CommandLineRunner {
 				.salario(3000)
 				.departamento(departamentoService.dameUnDepartamento(1))
 				.genero(Genero.MUJER)
+				.foto("bebe")
 				.build();
 
 		empleadoService.persistirEmpleado(emp1);

@@ -58,6 +58,10 @@ public class Empleado implements Serializable {
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
+
+    // Nombre de la foto porque el contenido
+    private String foto;
+
     // Quiero que el empleado tenga un departamento en el que trabaja. relacion Empleado-Departamento
     // Pero tengo que decirle cómo se relacionan
     // Quiero que si se hace una búsqueda me la haga cuando yo se la pida

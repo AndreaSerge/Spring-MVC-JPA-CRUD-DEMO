@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.entities.Correo;
 import com.example.entities.Departamento;
@@ -106,7 +109,37 @@ public class MainController {
     @Transactional // todas las que necesitan modificación en la base de datos, es el autocommit
     public String persistirEmpleado(@ModelAttribute(name="empleado") Empleado empleado,
     @RequestParam(name ="numerosTel", required = false) String telefonosRecibidos,
-    @RequestParam(name = "direccionesCorreo", required = false) String correosRecibidos) {
+    @RequestParam(name = "direccionesCorreo", required = false) String correosRecibidos,
+    @RequestParam(name = "file", required= false) MultipartFile imagen) {
+
+        // COmprobamos si hemos recibido un archivo de imagen
+        if(!imagen.isEmpty()) {
+
+            // Vamos a trabajar con NIO.2
+
+            // Recuperar la ruta (path) relativa de la carpeta donde quedará almacenado el archivo
+            Path imageFolder = Path.of("src/main/resources/static/images");
+            
+            // Crear la ruta absoluta
+            Path rutaAbsoluta = imageFolder.toAbsolutePath();
+
+            // También necesitamos la ruta completa (rutaAbsoluta + nombre del archivo recibido)
+            Path rutaCompleta = Path.of(rutaAbsoluta + "/" +imagen.getOriginalFilename());
+
+            try {
+
+                byte[] bytesImage =imagen.getBytes(); // Me devuelve el array de bytes que ha recibido del servidor
+                Files.write(rutaCompleta, bytesImage);
+
+                // Lo que resta es estblecer la propiedas foto del empleado a el nombre original del arciho recibido
+                empleado.setFoto(imagen.getOriginalFilename());
+                           
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+
+
+        }
 
         // Procesar los telefonos
         if(telefonosRecibidos != null) {
