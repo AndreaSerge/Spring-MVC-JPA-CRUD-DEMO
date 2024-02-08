@@ -67,7 +67,7 @@ public class SpringMvcJpaCrudDemoApplication implements CommandLineRunner {
 		Empleado emp1 = Empleado.builder()
 				.nombre("Aurora")
 				.primerApellido("Duque")
-				.segundoApellido("NoTiene")
+				.segundoApellido(null)
 				.fechaAlta(LocalDate.of(2000, Month.JANUARY, 12))
 				.salario(2500.5)
 				.departamento(departamentoService.dameUnDepartamento(1))

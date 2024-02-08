@@ -1,0 +1,43 @@
+/* Estilos generales */
+body {
+    background-color: #aef4e6; /* Color hueso para el fondo de la pantalla */
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+ 
+/* Estilos del formulario */
+fieldset {
+    width: 300px; /* Ajusta el ancho del fieldset según sea necesario */
+}
+ 
+label {
+    display: block; /* Muestra cada etiqueta en una línea separada */
+    margin-bottom: 5px; /* Añade espacio entre las etiquetas */
+}
+ 
+input {
+    display: block; /* Muestra cada input en una línea separada */
+    margin-bottom: 10px; /* Añade espacio entre los inputs */
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+}
+ 
+/* Estilos de la tabla */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+ 
+table, th, td {
+    border: 1px solid #000000; /* Marrón claro para los bordes de la tabla */
+}
+ 
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+ 
+/* Estilos para las filas impares (opcional) */
+tr:nth-child(odd) {
+    background-color: #fff8dc; /* Color más claro para las filas impares */
+}
